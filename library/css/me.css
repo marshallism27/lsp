@@ -18,6 +18,10 @@
 }
 .sidebar.close{
   width: 78px;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  display: block;
 }
 .sidebar .logo-details{
   height: 60px;
@@ -215,11 +219,11 @@
   left: 260px;
   width: calc(100% - 260px);
   transition: all 0.5s ease;
-
+ 
 }
 .sidebar.close ~ .home-section{
   left: 78px;
-  width: calc(100% - 78px);
+  width: 100%;
 }
 .home-section .home-content{
   height: 60px;
@@ -228,7 +232,7 @@
 }
 .home-section .home-content .bx-menu,
 .home-section .home-content .text{
-
+  
   color: #11101d;
   font-size: 35px;
 }
@@ -237,7 +241,7 @@
   cursor: pointer;
 }
 .home-section .home-content .text{
-
+  
   font-size: 26px;
   font-weight: 600;
 }
@@ -252,7 +256,7 @@
     width: 0;
   }
   .home-section{
-
+    
     left: 78px;
     width: calc(100% - 78px);
     z-index: 100;
@@ -308,3 +312,15 @@ body {
   cursor: pointer;
   border: solid 1px #BA68C8
 }
+
+.col-4{
+  float: left;
+  width: 20%; 
+}
+
+.col-8 {
+  float: left;
+  width: 60%;
+}
+
+
