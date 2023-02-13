@@ -1,13 +1,14 @@
 <?php
+
 session_start();
-include_once('../class/User.php');
-include_once('../class/Peminjaman.php');
+include('../class/User.php');
+include('../class/Peminjaman.php');
 
 $user = new User();
-$data_user = $user->find($_SESSION["id"]);
+$data_user = $user->find($_SESSION['id']);
 
 $peminjaman = new Peminjaman();
-$data_peminjaman = $peminjaman->find($_SESSION["id"]);
+$data_peminjaman = $peminjaman->find($_SESSION['id']);
 
 ?>
 
@@ -61,7 +62,7 @@ $data_peminjaman = $peminjaman->find($_SESSION["id"]);
                 <td><?= $p["t_pinjam"]?></td>
                 <td><?= $p["k_buku_p"]?></td>
                 <td>
-                <a href="form_pengembalian.php?edit?= id_peminjaman=<?= $p["id_peminjaman"]?>"><button class="btn btn-success">Pengembalian Buku</button></a>
+                <a href="form_pengembalian.php?id_buku=<?= $p["id_buku"]?>&id_peminjaman=<?= $p["id_peminjaman"] ?>"><button class="btn btn-success">Pengembalian Buku</button></a>
                 </td>
             </tr>
             </tbody>
@@ -83,3 +84,4 @@ $data_peminjaman = $peminjaman->find($_SESSION["id"]);
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
 </body>
 </html>
+
