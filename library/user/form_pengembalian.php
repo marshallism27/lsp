@@ -23,12 +23,12 @@ if(isset($_POST["submit"])){
     ];
 
     if($_POST["k_buku_k"] == 'BAIK'){
-        $reduce = $stock->addGood($id, $data);
+        $reduce = $stock->addGood( $data);
     } elseif ($_POST["k_buku_k"] == 'RUSAK'){
-        $reduce = $stock->addBad($id, $data);
+        $reduce = $stock->addBad( $data);
         $denda = $pengembalian->dendaRusak();
     } elseif($_POST['k_buku_k'] == 'HILANG'){
-        $reduce = $stock->reduceGood($id, $data);
+        $reduce = $stock->reduceGood( $data);
         $denda = $pengembalian->dendaHilang();
     }
     
