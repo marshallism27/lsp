@@ -1,8 +1,15 @@
 <?php
-include_once('../class/User.php');
 session_start();
+include('../class/User.php');
+include_once('../class/Pemberitahuan.php');
+
 $user = new User();
 $data_user = $user->find($_SESSION['id']);
+
+$pemberitahuan = new Pemberitahuan();
+$data_pemberitahuan = $pemberitahuan->all();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +29,55 @@ $data_user = $user->find($_SESSION['id']);
     <i class='bx bx-menu' ></i>
     <span class="text"> Selamat Datang <?= $data_user["fullname"] ?> di Perpustakaan</span>
   </div>
+
+  <div class="container text-right">
+  <div class="row">
+    <div class="col-4">
+    <div class="card" style = "">
+  <h5 class="card-header">Pemberitahuan</h5>
+  <?php foreach ($data_pemberitahuan as $p) {
+    ?>
+  <div class="card-body">
+    <p class="card-text"><?= $p["isi"]?></p>
+  </div>
+  <?php
+  }
+        ?>
+</div>
+    </div>
+    <div class="col-8">
+    <div class="row">
+  <div class=" col sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#"></a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Sejarah</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#"></a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card mt-3">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" ></a>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
 </section>
 
 
